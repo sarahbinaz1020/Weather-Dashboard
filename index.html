@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+      integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <link rel="stylesheet" href="assets/css/style.css" />
+  </head>
+  <body>
+    <div class="weather-header">
+      <h1>Weather Dashboard</h1>
+    </div>
+    <div class="container">
+      <div class="row">
+        <div class="col-3">
+          <p>Search for a city here:</p>
+          <form
+            class="example"
+            action="/action_page.php"
+            style="margin: auto; max-width: 300px">
+            <input type="text" placeholder="Search.." name="search2" />
+            <button type="submit" id="S"><i class="fa fa-search"></i></button>
+          </form>
+        </div>
+        <div class="col-9">
+          <h1>Current Weather shown here-Placeholder</h1>
+          <p id="city"></p>
+          <p id="date"></p>
+          <p id="temp"></p>
+          <p id="humidity"></p>
+          <p id="wind-speed"></p>
+          <p id="uv-index"></p>
+        </div>
+          <div ></div>
+          <div></div>
+        
+      </div>
+    
+    
+    
+    
+    
+
+      <script
+        src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+        crossorigin="anonymous"
+      ></script>
+      <script src="assets/main.js"></script>
+    </div>
+  </body>
+</html>
