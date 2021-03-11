@@ -1,9 +1,20 @@
 var api_key = "9d38179a65e9f54de109850607e33f7f";
 
+// global variables for current temp
+var currentTempEl = document.querySelector("#city");
+
+var currentDateEl = document.querySelector("date");
+
+var currentTempEl = document.querySelector("#current-temp");
+
+var currentHumidityEl = document.querySelector("#current-humidity");
+
+var currentWindEl = document.querySelector("#current-wind-speed");
+
+var currentUvEl = document.querySelector("#current-uv-index");
+
+
 // search for a city
-
-var currentTempEl = document.querySelector
-
 // current and future conditions for that city
 function getWeather(city) {
   var currentWeatherUrl = `http://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${api_key}`;
@@ -29,7 +40,7 @@ function getWeather(city) {
       fetch(onecallURL)
         .then((data) => data.json())
         .then(function (oneCallData) {
-          // currentUVEl.innerHTML = "UV Index: " + oneCallData.current.uvi;
+          // currentUvEl.innerHTML = "UV Index: " + oneCallData.current.uvi;
          
           // }
           console.log(oneCallData);
