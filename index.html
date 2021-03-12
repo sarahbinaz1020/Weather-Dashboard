@@ -21,92 +21,25 @@
     <div class="weather-header">
       <h1>Weather Dashboard</h1>
     </div>
-    <div class="container">
-      <div class="row">
-        <div class="col-3">
-          <p>Search for a city here:</p>
-          <form
-            class="example"
-            action="/action_page.php"
-            style="margin: auto; max-width: 300px">
-            <input type="text" placeholder="Search.." name="search2" />
-            <button type="submit" id="S"><i class="fa fa-search"></i></button>
-          </form>
-        </div>
-        <div class="col-9">
-          <h1>Current Weather shown here-Placeholder</h1>
-          <div id="city"></div>
-          <div id="date"></div>
-          <div id="current-temp"></div>
-          <div id="current-humidity"></div>
-          <div id="current-wind-speed"></div>
-          <div id="current-uv-index"></div>
-        </div>
-          <div>
-            <h1>5 Day Forecast:</h1>
+      <div class="container">
+        <div class="row">
+          <div class="col-3">
+            <p>Search for a city here:</p>
+            <form
+              class="example"
+              action="/action_page.php"
+              style="margin: auto; max-width: 300px">
+              <input type="text" placeholder="Search.." name="search2" />
+              <button type="submit" id="searchBtn"><i class="fa fa-search"></i></button>
+            </form>
           </div>
-          
-          <div id="date1">
-            <p>Date:</p>
-          </div>
-          <div id="temp1">
-            <p>Temp:</p>
-          </div>
-          <div id="humidity1">
-            <p>Humidity:</p>
-          </div>
-          
-          <div>
-            <div id="date2">
-              <p>Date:</p>
+          <div class="col-9">
+            <div id="weather-container"></div>
+            <div id="forecast-weather-container"></div>
             </div>
-            <div id="temp2">
-              <p>Temp:</p>
-            </div>
-            <div id="humidity2">
-              <p>Humidity:</p>
-            </div>
-          </div>  
-
-          <div>
-            <div id="date3">
-              <p>Date:</p>
-            </div>
-            <div id="temp3">
-              <p>Temp:</p>
-            </div>
-            <div id="humidity3">
-              <p>Humidity:</p>
-            </div>
-          </div> 
-
-          <div>
-            <div id="date4">
-              <p>Date:</p>
-            </div>
-            <div id="temp4">
-              <p>Temp:</p>
-            </div>
-            <div id="humidity4">
-              <p>Humidity:</p>
-            </div>
-          </div> 
-
-          <div>
-            <div id="date5">
-              <p>Date:</p>
-            </div>
-            <div id="temp5">
-              <p>Temp:</p>
-            </div>
-            <div id="humidity5">
-              <p>Humidity:</p>
-            </div>
-          </div> 
-        </div>
-          <div></div>
-        
-      </div>
+        </div> 
+      </div>      
+    </div>
     
     
     
