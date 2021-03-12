@@ -6,6 +6,9 @@ var api_key = "9d38179a65e9f54de109850607e33f7f";
 //   event.preventDefault();
 //   console.log();
 // }
+var cityTextEl = document.querySelector("#city-text");
+
+
 
 // current for that city
 function getWeather(city) {
@@ -31,8 +34,8 @@ function getWeather(city) {
         });
     });
     // fetch 5 day forecast
-  var forecastWeartherUrl = `http://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${api_key}`;
-  fetch(forecastWeartherUrl)
+  var forecastWeatherUrl = `http://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${api_key}`;
+  fetch(forecastWeatherUrl)
     .then((data) => data.json())
     .then (function (forecastWeather){
       console.log(forecastWeather);
@@ -70,7 +73,7 @@ function displayForecastWeather(forecastWeather){
   var tempF = Math.floor(1.8 * (tempKelvin - 273.15) + 32) + " degrees";
  console.log(forecastWeatherContainerEl)
 
-
+// for loop to run through days, but is not working
   for (daily=0; daily < 4; daily++) {
     forecastWeatherContainerEl.innerHTML = `<div id="date1">Date:${forecastWeather.daily[0].dt_txt}</div>
   <div id="temp1">Temp: ${tempF}</div>
@@ -81,23 +84,23 @@ function displayForecastWeather(forecastWeather){
 
 // click on a city in the search history-presented with current and future conditions for that city
 
-// // Pull the hour for local storage
-// $(".time-block").each(function() {
-//   // Get elements by id
-//   const id = $(this).attr("id");
+// // Pull the weather for local storage
+$("#weather-container").each(function() {
+  // Get elements by id
+  const id = $(this).attr("id");
 
-//   // Retrive data from local storage
-//   var storedDescription = localStorage.getItem(id);
+  // Retrive data from local storage
+  var storedDescription = localStorage.getItem(id);
 
-//   $(this).children("textarea").val(storedDescription);
+  $(this).children("textarea").val(storedDescription);
 
-// })
-// // click on button and log input to local storage
-// $(".saveBtn").on("click", function () {
-//   // create variable and DOM traverse to parent of save button to the id identifier
-//   var id = $(this).parent().attr("id");
-//   // get the value from the input area
-//   var description = $(this).siblings("textarea").val();
-//   // store value from input area into local storage
-//   localStorage.setItem(id, description);
-// })
+})
+// click on button and log input to local storage
+$("#searchBtn").on("click", function () {
+  // create variable and DOM traverse to parent of save button to the id identifier
+  var id = $(this).parent().attr("id");
+  // get the value from the input area
+  var description = $(this).siblings("textarea").val();
+  // store value from input area into local storage
+  localStorage.setItem(id, description);
+})
