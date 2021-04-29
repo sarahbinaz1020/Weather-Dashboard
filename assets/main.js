@@ -7,11 +7,15 @@ var api_key = "9d38179a65e9f54de109850607e33f7f";
 //   console.log();
 // }
 var cityTextEl = document.getElementById("#city-text");
-var searchEl = document.getElementById("#searchBtn")
-var clearEl = document.getElementById("#clearBtn")
-var searchEl = document.getElementById("#searchBtn")
-var searchEl = document.getElementById("#searchBtn")
-var searchEl = document.getElementById("#searchBtn")
+var searchEl = document.getElementById("#searchBtn");
+var clearEl = document.getElementById("#clearBtn");
+var cityNameEl = document.getElementById("#city-name");
+var tempEl = document.getElementById("#temperature");
+var humidityEl = document.getElementById("#humidity");
+var windSpeedEl = document.getElementById("#wind-speed");
+var uvIndexEl = document.getElementById("#UV-index");
+var historyEl = document.getElementById("#history");
+var searchHistoryEl = JSON.parse(localStoragwe.getItem("#search")) || [];
 
 
 // current weatherfor that city
