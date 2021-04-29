@@ -6,13 +6,17 @@ var api_key = "9d38179a65e9f54de109850607e33f7f";
 //   event.preventDefault();
 //   console.log();
 // }
-var cityTextEl = document.querySelector("#city-text");
+var cityTextEl = document.getElementById("#city-text");
+var searchEl = document.getElementById("#searchBtn")
+var clearEl = document.getElementById("#clearBtn")
+var searchEl = document.getElementById("#searchBtn")
+var searchEl = document.getElementById("#searchBtn")
+var searchEl = document.getElementById("#searchBtn")
 
 
-
-// current for that city
+// current weatherfor that city
 function getWeather(city) {
-  var currentWeatherUrl = `http://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${api_key}`;
+  var currentWeatherUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${api_key}`;
   fetch(currentWeatherUrl)
     .then((data) => data.json())
     .then(function (weather) {
@@ -34,14 +38,14 @@ function getWeather(city) {
         });
     });
     // fetch 5 day forecast
-  var forecastWeatherUrl = `http://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${api_key}`;
+  var forecastWeatherUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${api_key}`;
   fetch(forecastWeatherUrl)
     .then((data) => data.json())
     .then (function (forecastWeather){
       console.log(forecastWeather);
     })
 }
-getWeather ("Phoenix");
+getWeather ();
 
 function displayWeather(currentWeather) {
   var weatherContainerEl = document.querySelector("#weather-container");
