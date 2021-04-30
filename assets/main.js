@@ -1,29 +1,28 @@
+// API key
 var api_key = "9d38179a65e9f54de109850607e33f7f";
 
+// declare all variables
+var currentDateEl = document.getElementById("currentDate");
+var cityTextEl = document.getElementById("city-text");
+var searchEl = document.getElementById("searchBtn");
+var clearEl = document.getElementById("clearBtn");
+var cityNameEl = document.getElementById("city-name");
+var tempEl = document.getElementById("temperature");
+var humidityEl = document.getElementById("humidity");
+var windSpeedEl = document.getElementById("wind-speed");
+var uvIndexEl = document.getElementById("UV-index");
+var historyEl = document.getElementById("history");
+var searchHistoryEl = JSON.parse(localStorage.getItem("#search")) || [];
+
+var city = "Phoenix";
 // search for a city
-
-// $("#searchBtn").on("click", function (event){
-//   event.preventDefault();
-//   console.log();
-// }
-var cityTextEl = document.getElementById("#city-text");
-var searchEl = document.getElementById("#searchBtn");
-var clearEl = document.getElementById("#clearBtn");
-var cityNameEl = document.getElementById("#city-name");
-var tempEl = document.getElementById("#temperature");
-var humidityEl = document.getElementById("#humidity");
-var windSpeedEl = document.getElementById("#wind-speed");
-var uvIndexEl = document.getElementById("#UV-index");
-var historyEl = document.getElementById("#history");
-var searchHistoryEl = JSON.parse(localStoragwe.getItem("#search")) || [];
-
-
 // current weatherfor that city
-function getWeather(city) {
+function getWeather() {
   var currentWeatherUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${api_key}`;
   fetch(currentWeatherUrl)
     .then((data) => data.json())
     .then(function (weather) {
+      
       console.log(weather);
       
       if (weather.cod === "404") {
@@ -31,13 +30,14 @@ function getWeather(city) {
         return;
       }
       displayWeather(weather);
-      // get lat & long for city
+      // get lat & long for city to grab UVI
       var lon = weather.coord.lon;
       var lat = weather.coord.lat;
       var onecallURL = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&appid=${api_key}&exclude=minutely,hourly`;
       fetch(onecallURL)
         .then((data) => data.json())
         .then(function (oneCallData) { 
+          
           console.log(oneCallData);
         });
     });
@@ -51,21 +51,34 @@ function getWeather(city) {
 }
 getWeather ();
 
-function displayWeather(currentWeather) {
+function displayWeather(currentWeather, oneCallData) {
   var weatherContainerEl = document.querySelector("#weather-container");
+  
+  // get current date
+  const currentDate = new Date(currentWeather.dt*1000);
+  const day = currentDate.getDate();
+  const month = currentDate.getMonth() + 1;
+  const year = currentDate.getFullYear();
+  currentDateEl.innerHTML = "Current Weather: " + currentWeather.name + " " + month + "/" + day + "/" + year + " ";
+
   // convert temp from Kelvin to degrees
   var tempKelvin = currentWeather.main.temp;
-  var tempF = Math.floor(1.8 * (tempKelvin - 273.15) + 32) + " degrees";
-  
+  var tempF = Math.floor(1.8 * (tempKelvin - 273.15) + 32) + " °F";
+  tempEl.innerHTML = "Temperature: " + tempF;
+
+  humidityEl.innerHTML = "Humidity: " + currentWeather.main.humidity + "%";
+  windSpeedEl.innerHTML = "WindSpeed: " + currentWeather.wind.speed + " MPH";
+  uvIndexEl.innerHTML = "UV Index: " + oneCallData.current.uvi 
+  console.log(currentWeather)
   // currentUvEl = current.uvi;
 
 // view current weather conditions for that city name,  the date, an icon representation of weather conditions, the temperature, the humidity, the wind speed, and the UV index
-  weatherContainerEl.innerHTML = `<div id="city">City: ${currentWeather.name} </div>
-  <div id="date"></div>
-  <div id="current-temp">Temperature: ${tempF}</div>
-  <div id="current-humidity">Humidity: ${currentWeather.main.humidity} %</div>
-  <div id="current-wind-speed">Wind Speed: ${currentWeather.wind.speed}</div>
-  <div id="current-uv-index">UV Index: </div>`
+  // weatherContainerEl.innerHTML = `<div id="city">City: ${currentWeather.name} </div>
+  // <div id="date"></div>
+  // <div id="current-temp">Temperature: ${tempF}</div>
+  // <div id="current-humidity">Humidity: ${currentWeather.main.humidity} %</div>
+  // <div id="current-wind-speed">Wind Speed: ${currentWeather.wind.speed}</div>
+  // <div id="current-uv-index">UV Index: </div>`
 }
 
  // and that city is added to the search history
@@ -112,3 +125,7 @@ $("#searchBtn").on("click", function () {
   // store value from input area into local storage
   localStorage.setItem(id, description);
 })
+
+// $("#searchBtn").on("click", function (event){
+//   event.preventDefault();
+//   console.log();
