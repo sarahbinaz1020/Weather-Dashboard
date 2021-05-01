@@ -6,7 +6,34 @@
     
 }
 
+#weather-container {
+  border-width: thick;
+}
 
+#current-weather-header {
+  font-size: 25px;
+  font-weight: bold;
+}
+
+.severe,
+.favorable,
+.moderate {
+  height: 25px;
+  width: 25px;
+  margin-left: 5px;
+}
+
+.severe {
+  background-color: rgb(136, 44, 44);
+}
+
+.favorable {
+  background-color: rgb(39, 95, 39);
+}
+
+.moderate {
+  background-color: rgb(214, 214, 84);
+}
 
 
 form.example input[type=text] {

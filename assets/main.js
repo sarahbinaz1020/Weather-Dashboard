@@ -42,15 +42,17 @@ function getWeather() {
         .then((data) => data.json())
         .then(function (oneCallData) {
           console.log(oneCallData);
+
+          
           // display UV Index
-          var weatherContainerEl = document.querySelector("#weather-container");
+          var weatherContainerEl = document.querySelector("#UV-index");
           uvIndexEl.innerHTML = "UV Index: " + oneCallData.current.uvi;
-          // UV Index button - can't get button to add on to screen
+          // UV Index button
           var uvEl = document.createElement("button");
-          var UvIndex = oneCallData.current.uvi;
+          var uvIndex = oneCallData.current.uvi;
 
           if (uvIndex <= 2) {
-            uvEL.classList.add("favorable");
+            uvEl.classList.add("favorable");
           } else if (uvIndex >= 5) {
             uvEl.classList.add("severe");
           } else {
