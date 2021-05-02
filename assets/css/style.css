@@ -16,6 +16,10 @@
   font-weight: bold;
 }
 
+#history {
+  margin-top: 25px;;
+}
+
 .severe,
 .favorable,
 .moderate {

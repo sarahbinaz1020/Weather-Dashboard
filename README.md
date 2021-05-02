@@ -1,6 +1,6 @@
-# Weather-DashboardGIVEN a weather dashboard with form inputs
+# Weather-Dashboard
 
-Goal: Create a Work Day Scheduler using Javascript/jquery/local storage concepts.
+Goal: Create a Weather Dashboard using Javascript/jquery/local storage concepts.
 
 API keys used:
 https://openweathermap.org/forecast5
