@@ -10,33 +10,34 @@ var clearEl = document.getElementById("clearBtn");
 var cityNameEl = document.getElementById("city-name");
 var currentDateEl = document.getElementById("currentDate");
 var forecastDateEl = document.getElementById("forecastDate");
+var currentPicEl = document.getElementById("current-pic");
 var tempEl = document.getElementById("temperature");
 var humidityEl = document.getElementById("humidity");
 var windSpeedEl = document.getElementById("wind-speed");
 var uvIndexEl = document.getElementById("UV-index");
 // forecast days
 var forecastDate1El = document.getElementById("forecastDate1");
-var forecastIcon1El = document.getElementById("forecastIcon1");
+var forecastIcon1El = document.getElementById("forecast-pic1");
 var forecastTemp1El = document.getElementById("forecastTemp1");
 var forecastHumidity1El = document.getElementById("forecastHumidity1");
 
 var forecastDate2El = document.getElementById("forecastDate2");
-var forecastIcon2El = document.getElementById("forecastIcon2");
+var forecastIcon2El = document.getElementById("forecast-pic2");
 var forecastTemp2El = document.getElementById("forecastTemp2");
 var forecastHumidity2El = document.getElementById("forecastHumidity2");
 
 var forecastDate3El = document.getElementById("forecastDate3");
-var forecastIcon3El = document.getElementById("forecastIcon3");
+var forecastIcon3El = document.getElementById("forecast-pic3");
 var forecastTemp3El = document.getElementById("forecastTemp3");
 var forecastHumidity3El = document.getElementById("forecastHumidity3");
 
 var forecastDate4El = document.getElementById("forecastDate4");
-var forecastIcon4El = document.getElementById("forecastIcon4");
+var forecastIcon4El = document.getElementById("forecast-pic4");
 var forecastTemp4El = document.getElementById("forecastTemp4");
 var forecastHumidity4El = document.getElementById("forecastHumidity4");
 
 var forecastDate5El = document.getElementById("forecastDate5");
-var forecastIcon5El = document.getElementById("forecastIcon5");
+var forecastIcon5El = document.getElementById("forecast-pic15");
 var forecastTemp5El = document.getElementById("forecastTemp5");
 var forecastHumidity5El = document.getElementById("forecastHumidity5");
 
@@ -98,7 +99,10 @@ function getWeather(cityName) {
       const year = currentDate.getFullYear();
       currentDateEl.innerHTML =
       currentWeather.name + " - " + month + "/" + day + "/" + year + " ";
-      
+      let weatherPic = currentWeather.weather[0].icon;
+            currentPicEl.setAttribute("src","https://openweathermap.org/img/wn/" + weatherPic + "@2x.png");
+            currentPicEl.setAttribute("alt",currentWeather.weather[0].description);
+
       // convert temp from Kelvin to degrees
       var tempKelvin = currentWeather.main.temp;
       var tempF = Math.floor(1.8 * (tempKelvin - 273.15) + 32) + " °F";
@@ -156,9 +160,10 @@ function getWeather(cityName) {
         var forecastYear = forecastDate.getFullYear();
         forecastDate1El.innerHTML = forecastMonth + "/" + forecastDay + "/" + forecastYear;
 // Icon - can't get icon to display
-      //  var weatherIcon = document.createElement("img");
-      //  weatherIcon.setAttribute("src", forecastWeather.list[4].weather[0].icon );
-      // forecastIcon1El.innerHTML = weatherIcon
+       var weatherPic = forecastWeather.list[4].weather[0].icon;
+       forecastIcon1El.setAttribute("src", "https://openweathermap.org/img/wn/" + weatherPic + "@2.png");
+       forecastIcon1El.setAttribute("alt", forecastWeather.list[4].weather[0].description);
+      
     //  Temp
       var tempKelvin = forecastWeather.list[7].main.temp_max;
       var tempF = Math.floor(1.8 * (tempKelvin - 273.15) + 32) + " degrees";
@@ -176,9 +181,9 @@ function getWeather(cityName) {
               forecastDate2El.innerHTML = forecastMonth2 + "/" + forecastDay2 + "/" + forecastYear2;
       
       // Icon - can't get icon to display
-            //  var weatherIcon = document.createElement("img");
-            //  weatherIcon.setAttribute("src", forecastWeather.list[4].weather[0].icon );
-            // forecastIcon1El.innerHTML = weatherIcon
+      var weatherPic2 = forecastWeather.list[15].weather[0].icon;
+      forecastIcon2El.setAttribute("src", "https://openweathermap.org/img/wn/" + weatherPic2 + "@2.png");
+      forecastIcon2El.setAttribute("alt", forecastWeather.list[15].weather[0].description);
           //  Temp
             var tempKelvin = forecastWeather.list[15].main.temp_max;
             var tempF = Math.floor(1.8 * (tempKelvin - 273.15) + 32) + " degrees";
@@ -195,9 +200,9 @@ function getWeather(cityName) {
               forecastDate3El.innerHTML = forecastMonth3 + "/" + forecastDay3 + "/" + forecastYear3;
       
       // Icon - can't get icon to display
-            //  var weatherIcon = document.createElement("img");
-            //  weatherIcon.setAttribute("src", forecastWeather.list[4].weather[0].icon );
-            // forecastIcon1El.innerHTML = weatherIcon
+      var weatherPic3 = forecastWeather.list[23].weather[0].icon;
+      forecastIcon3El.setAttribute("src", "https://openweathermap.org/img/wn/" + weatherPic3 + "@2.png");
+      forecastIcon3El.setAttribute("alt", forecastWeather.list[23].weather[0].description);
           //  Temp
             var tempKelvin = forecastWeather.list[23].main.temp_max;
             var tempF = Math.floor(1.8 * (tempKelvin - 273.15) + 32) + " degrees";
@@ -214,9 +219,9 @@ function getWeather(cityName) {
               forecastDate4El.innerHTML = forecastMonth4 + "/" + forecastDay4 + "/" + forecastYear4;
       
       // Icon - can't get icon to display
-            //  var weatherIcon = document.createElement("img");
-            //  weatherIcon.setAttribute("src", forecastWeather.list[4].weather[0].icon );
-            // forecastIcon1El.innerHTML = weatherIcon
+      var weatherPic4 = forecastWeather.list[31].weather[0].icon;
+      forecastIcon4El.setAttribute("src", "https://openweathermap.org/img/wn/" + weatherPic4 + "@2.png");
+      forecastIcon4El.setAttribute("alt", forecastWeather.list[31].weather[0].description);
           //  Temp
             var tempKelvin = forecastWeather.list[31].main.temp_max;
             var tempF = Math.floor(1.8 * (tempKelvin - 273.15) + 32) + " degrees";
@@ -233,9 +238,9 @@ function getWeather(cityName) {
               forecastDate5El.innerHTML = forecastMonth5 + "/" + forecastDay5 + "/" + forecastYear5;
       
       // Icon - can't get icon to display
-            //  var weatherIcon = document.createElement("img");
-            //  weatherIcon.setAttribute("src", forecastWeather.list[4].weather[0].icon );
-            // forecastIcon1El.innerHTML = weatherIcon
+      // var weatherPic5 = forecastWeather.list[39].weather[0].icon;
+      // forecastIcon5El.setAttribute("src", "https://openweathermap.org/img/wn/" + weatherPic5 + "@2.png");
+      // forecastIcon5El.setAttribute("alt", forecastWeather.list[39].weather[0].description);
           //  Temp
             var tempKelvin = forecastWeather.list[39].main.temp_max;
             var tempF = Math.floor(1.8 * (tempKelvin - 273.15) + 32) + " degrees";
@@ -248,7 +253,7 @@ function getWeather(cityName) {
           searchEl.addEventListener("click", function(e) {
             e.preventDefault();
             console.log("submit")
-            var searchName = inputEl.nodeValue;
+            var searchName = inputEl.value;
             getWeather(searchName);
             searchHistoryEl.push(searchName);
             localStorage.setItem("search",JSON.stringify(searchHistoryEl));
