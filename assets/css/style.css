@@ -8,6 +8,7 @@
 
 #weather-container {
   border-width: thick;
+  background-color: rgb(210, 224, 233);
 }
 
 #current-weather-header {
@@ -24,11 +25,11 @@
 }
 
 .severe {
-  background-color: rgb(136, 44, 44);
+  background-color: rgb(206, 18, 18);
 }
 
 .favorable {
-  background-color: rgb(39, 95, 39);
+  background-color: rgb(43, 139, 43);
 }
 
 .moderate {
