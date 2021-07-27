@@ -1,10 +1,10 @@
 # Weather-Dashboard
 
-**Goal:** 
+## Goal:
 
 Create a Weather Dashboard using Javascript/jquery/local storage concepts.
 
-**User Story:**
+## User Story:
 
 * As a user looking for the weather in a particular city, I would like to be able to search for a city in the search bar and display the weather. 
 
@@ -15,20 +15,22 @@ Create a Weather Dashboard using Javascript/jquery/local storage concepts.
 ![image of markdown](./assets/css/images/weather-dashboard.png)
 
 
-**API keys used:**
+API keys used:
 
 * [Open Weather Current Weather ](https://openweathermap.org/current)
 
 * [Open Weather 5 Day Forecast](https://openweathermap.org/forecast5)
 
 
-**Deployment** 
+## Deployment
 
 Page is deployed using [GitHub](https://sarahbinaz1020.github.io/Weather-Dashboard/index.html)
 
-**Future Development**
+## Future Development
 
 Currently recreating using React.
 
+## Questions
 
+If you have any questions about the repo, open an issue or contact me directly at sarahbinaz1020@gmail.com. You can find more of my work at [Sarah Bonnell](https://github.com/sarahbinaz1020/).
 
